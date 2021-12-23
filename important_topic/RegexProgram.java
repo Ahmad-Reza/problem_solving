@@ -74,5 +74,39 @@ public class RegexProgram {
         }    
         //o/p: Pattern found from 0 to 4
         //     Pattern found from 8 to 12
+
+        //example 3:
+        // Creating a pattern to be searched Custom pattern to be searched
+        Pattern pattern1 = Pattern.compile("ge*");
+        Matcher m1 = pattern1.matcher("geeksforgeeks.org");
+ 
+        // Checking whether the pattern is there or not using find() method
+        while (m1.find()) {
+            System.out.println("Pattern found from " + m.start() + " to " + (m.end() - 1));
+        }
+
+        //o/p: Pattern found from 0 to 2
+        //     Pattern found from 8 to 10
+        //     Pattern found from 16 to 16
+
+        //Example 4: split() method to split a text based on a delimiter pattern.
+        
+        String text = "geeks1for2geeks3";
+ 
+        // Specifies the string pattern which is to be searched
+        String delimiter = "\\d";
+        Pattern pattern2 = Pattern.compile(delimiter, Pattern.CASE_INSENSITIVE);
+ 
+        // Used to perform case insensitive search of the
+        // string
+        String[] result = pattern2.split(text);
+ 
+        // Iterating using for each loop
+        for (String temp : result) {
+            System.out.println(temp); 
+        } 
+        //o/p: geeks
+        //     for
+        //     geeks
     }
 }
