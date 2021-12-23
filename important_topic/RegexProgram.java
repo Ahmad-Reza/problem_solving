@@ -1,5 +1,6 @@
 package important_topic;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -40,5 +41,38 @@ public class RegexProgram {
  
         // text "geeksfor" doesn't match pattern "g*geeks*" so return false.
         System.out.println(Pattern.matches("g*geeks*", "geeksfor"));
+
+        /**
+         * Matcher class: This object is used to perform match operations for an input string in java, 
+         * thus interpreting the previously explained patterns. This too defines no public constructors. 
+         * This can be implemented by invoking a matcher() on any pattern object.
+         * 
+         * find(): It is mainly used for searching multiple occurrences of the regular expressions in the text.
+         * find(int start):	It is used for searching occurrences of the regular expressions in the text starting from the given index.
+         * start():	It is used for getting the start index of a match that is being found using find() method.
+         * end(): It is used for getting the end index of a match that is being found using find() method. 
+         * It returns index of character next to last matching character.
+         * groupCount(): It is used to find the total number of the matched subsequence.
+         * group():	It is used to find the matched subsequence.
+         * matches(): It is used to test whether the regular expression matches the pattern.
+         * 
+         * Note: that Pattern.matches() checks if the whole text matches with a pattern or not. 
+         * Other methods (demonstrated below) are mainly used to find multiple occurrences of patterns in the text.
+         * 
+         */
+
+        // Create a pattern to be searched Custom pattern
+        Pattern pattern = Pattern.compile("geeks");
+ 
+        // Search above pattern in "geeksforgeeks.org"
+        Matcher m = pattern.matcher("geeksforgeeks.org");
+ 
+        // Finding string using find() method
+        while (m.find()) {
+            // Print starting and ending indexes of the pattern in the text using this functionality of this class
+            System.out.println("Pattern found from " + m.start() + " to " + (m.end() - 1));
+        }    
+        //o/p: Pattern found from 0 to 4
+        //     Pattern found from 8 to 12
     }
 }
