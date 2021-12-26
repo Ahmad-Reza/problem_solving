@@ -24,7 +24,7 @@ public class BubbleSort {
             }
         }
 
-        System.out.println("\n after sort :");
+        System.out.print("\nafter sort :");
         for(int i = 0; i<arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -32,11 +32,21 @@ public class BubbleSort {
     public static void main(String[] args) {
         int arr[] = {2, 36, 19, 29, 12, 5};
 
-        System.out.println("Before sort :");
+        System.out.print("Before sort :");
         for(int i = 0; i<arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
 
         bubbleSort(arr);
+
+        //for String sort: compareTo() method is used for comparision two strings lexicographically each character of 
+        //both the string is converted into a unicode value for comparision.
+        //if both string is equal then return '0', if string is lexicographically greater then return positive else negative.
+
+        String str[] = {"Ram", "Ram", "Shyam", "Mohan", "Ramesh", "Ganesh"};
+        System.out.print("\nString sort :");
+        for(int i=0; i<str.length - 1; i++) {
+            System.out.print(str[i].compareTo(str[i+1]));
+        }
     }
 }
