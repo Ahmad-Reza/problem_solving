@@ -1,3 +1,5 @@
+package Array;
+
 public class ArrayRotation {
 
     public void rotationArray(int array[], int d, int length) {
@@ -13,8 +15,8 @@ public class ArrayRotation {
         for(int j=0; j<length; j++) {
             array[j] = arr1[j];
         }
+
         System.out.println("\n second: " + array);
-       
     }
 
     public static void main(String[] args) {
