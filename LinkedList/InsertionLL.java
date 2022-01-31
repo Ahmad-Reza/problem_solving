@@ -11,6 +11,18 @@ public class InsertionLL {
 
     }
 
+    private void insertAtFront(int data) {
+        Node frontNode = new Node(data);
+        frontNode.next = head;
+        head = frontNode;
+    }
+
+    private void push(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
     private void showLinkedlistData() {
         Node n = head;
  
@@ -25,44 +37,49 @@ public class InsertionLL {
     public static void main(String[] args) {
         InsertionLL ll = new InsertionLL();
         
-        ll.head = new Node(5);
-        Node second = new Node(9);
-        Node third = new Node(6);
-        Node fourth = new Node(22);
-        Node fifth = new Node(13);
-
-        ll.head.next = second;
-        second.next = third;
-        third.next = fourth;
-        fourth.next = fifth;
+        ll.push(13);
+        ll.push(22);
+        ll.push(6);
+        ll.push(9);
+        ll.push(5);
     
         System.out.print("Given Linked list: ");
         ll.showLinkedlistData();
     
-        Node front_node = new Node(4);
-        front_node.next = ll.head;
-        ll.head = front_node;
-
+        ll.insertAtFront(4);
         System.out.print("Insert at the front: ");
         ll.showLinkedlistData();
  
-        //suppose we will insert node after third
-        Node after_node = new Node(7);
-        after_node.next = third.next;
-        third.next = after_node;
-
+        ll.insertAfterNode(ll.head.next, 7);
         System.out.print("Insert after given node: ");
         ll.showLinkedlistData();
 
-        Node end_node = new Node(14);
-
-        Node last = ll.head;
-        while(last != null) last = last.next;
-            
-        last = end_node;   
-        end_node.next = null;
-        
+        ll.insertAtEnd(14);
         System.out.print("Insert at the end: ");
         ll.showLinkedlistData();
+    }
+
+    private void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+
+        Node end = head, prev = null;
+        if(end.next == null) {
+            newNode.next = end;
+            end = newNode;
+            return;
+        }
+
+        while(end != null) {
+            prev = end;
+            end = end.next;
+        } 
+
+        prev.next = newNode;
+    }
+
+    private void insertAfterNode(Node prev, int data) {
+        Node newNode = new Node(data);
+        newNode.next = prev.next;
+        prev.next = newNode;
     }
 }
