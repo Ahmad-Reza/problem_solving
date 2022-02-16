@@ -26,14 +26,26 @@ public class TreeImpl {
             
             return newNode;
         }
+
+        public void preOrderTraversal(Node root) {
+            //base case to avoid stackOverFlow exception
+            if(root == null) return;
+
+            System.out.print(root.data + " ");
+            preOrderTraversal(root.left);
+            preOrderTraversal(root.right);
+        }
     }
     
-
     public static void main(String[] args) {
         int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1}; // -1 means null value
 
         BuildTree tree = new BuildTree();
         Node root = tree.buildTree(nodes);
         System.out.println(root.data);
+
+        //Tree Traversal...
+        //a) PreOrder traverse -> root, left subtree, right subtree
+        tree.preOrderTraversal(root);
     }
 }
