@@ -35,6 +35,14 @@ public class TreeImpl {
             preOrderTraversal(root.left);
             preOrderTraversal(root.right);
         }
+
+        public void inOrderTraversal(Node root) {
+            if(root == null) return;
+
+            inOrderTraversal(root.left);
+            System.out.print(root.data + " ");
+            inOrderTraversal(root.right);
+        }
     }
     
     public static void main(String[] args) {
@@ -46,6 +54,11 @@ public class TreeImpl {
 
         //Tree Traversal...
         //a) PreOrder traverse -> root, left subtree, right subtree
+        System.out.print("PreOrder traversal: ");
         tree.preOrderTraversal(root);
+
+        //a) InOrder traverse -> left subtree, root, right subtree
+        System.out.print("\nInOrder traversal: ");
+        tree.inOrderTraversal(root);
     }
 }
